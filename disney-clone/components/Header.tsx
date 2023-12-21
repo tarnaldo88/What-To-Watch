@@ -14,8 +14,8 @@ function Header() {
                 height={100}
             />
         </Link>
-        <div>
-
+        <div className='flex space-x-2'>
+          
         </div>
     </header>
   )
