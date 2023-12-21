@@ -21,4 +21,4 @@ function SearchPage({params: {term}}: Props) {
     );
 }
 
-export default SearchPage
+export default SearchPage;
