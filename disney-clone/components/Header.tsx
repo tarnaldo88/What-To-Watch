@@ -3,6 +3,7 @@ import Image from 'next/image'
 import React from 'react'
 import { ThemeToggler } from './ThemeToggler'
 import SearchInput from './SearchInput'
+import GenreDropdown from './GenreDropdown'
 
 function Header() {
   return (
@@ -11,13 +12,14 @@ function Header() {
         <Link className='mr-10' href="/">
             <Image 
                 src="https://w.wallhaven.cc/full/x6/wallhaven-x6wjkv.png"                
-                className='cursor-pointer'
+                className='cursor-pointer invert'
                 alt="Disney Logo"
                 width={120}
                 height={100}
             />
         </Link>
         <div className='flex space-x-2'>
+          <GenreDropdown/>
           <SearchInput />
          <ThemeToggler/>
         </div>
