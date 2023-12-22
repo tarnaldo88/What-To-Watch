@@ -16,6 +16,9 @@ module.exports = {
       },
     },
     extend: {
+      flex: {
+        full: " 0 0 100%"
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
