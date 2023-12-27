@@ -1,19 +1,40 @@
+'use client'
 import { Movie } from '@/typings'
-import React from 'react'
+import React, { useState } from 'react'
 import Image from 'next/image'
-import getImagePath from '@/lib/getImagePath'
+import getImagePath from '@/lib/getImagePath' 
+import { Console } from 'console'
+
+interface ImageWithTextProps {
+  imageUrl: string;
+  text: string;
+}
 
 function MovieCard({movie}: {movie:Movie}) {
+  const [isHovered, setIsHovered] = useState(false);
+
   return (
     <div className='relative flex-shrink-0 cursor-pointer transform 
-        hover:scale-105 transition-duration-200 ease-out'>
+        hover:scale-105 transition-duration-200 ease-out'
+    >
         <div
             className='absolute inset-0 bg-gradient-to-b from-gray-200/0
                 via-gray-900/10 to-gray-300 dark:to-[#1A1C29]/80 z-10'
+                onMouseOver={() => setIsHovered(true)}
+          onMouseOut={() => setIsHovered(false)}
         />
-        <p className='absolute z-20 bottom-5 left-5'>{movie.title}</p>
+        { !isHovered && <p className='absolute z-20 bottom-5 left-5'>{movie.title}</p>}
+        {isHovered && 
+          <p className='absolute z-20 bottom-5 left-5'
+            onMouseOver={() => setIsHovered(true)}
+            onMouseOut={() => setIsHovered(false)}
+          >
+            {movie.overview}
+          </p>
+        }
         
-        <Image
+            
+            <Image
             className='w-fit lg:min-w-[400px] h-56 object-cover object-center shadow-md 
             shadow-gray-900 drop-shadow-xl rounded-sm'
             src={getImagePath(movie.backdrop_path || movie.poster_path)}
@@ -21,7 +42,7 @@ function MovieCard({movie}: {movie:Movie}) {
             width={1920}
             height={1080}
             key={movie.id}
-        />
+        />       
     </div>
   )
 }
