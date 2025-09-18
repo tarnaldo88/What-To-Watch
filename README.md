@@ -16,38 +16,6 @@ A sleek movie discovery site to finally settle the old debate of “what should 
 - **Carousels**: embla-carousel-react
 - **Data**: TMDB API v3 endpoints with v4 Bearer auth
 
-## Getting Started
-
-### Prerequisites
-- Node.js 18.17+ (Next 14 requirement)
-- A TMDB account and a v4 API Read Access Token (Bearer token)
-  - Create one at: https://www.themoviedb.org/settings/api
-
-### 1) Clone and install
-```bash
-npm install
-```
-
-### 2) Configure environment variables
-Create a `.env.local` file in the project root:
-```bash
-# TMDB v4 Read Access Token (starts with "eyJ...")
-TMDB_API_KEY=YOUR_TMDB_V4_READ_ACCESS_TOKEN
-```
-
-This app authenticates requests with the `Authorization: Bearer <TMDB_API_KEY>` header (see `lib/getMovies.ts`).
-
-### 3) Run the app
-```bash
-npm run dev
-```
-Open http://localhost:3000.
-
-## Available Scripts
-- `npm run dev` - start Next.js in development
-- `npm run build` - build for production
-- `npm run start` - run the production build
-- `npm run lint` - run Next.js ESLint
 
 ## Project Structure (key paths)
 - `app/page.tsx` - Home page with Upcoming, Popular, Top Rated carousels
@@ -68,8 +36,6 @@ Endpoints used (via `lib/getMovies.ts`):
 - `GET /discover/movie` (with `with_genres`)
 - `GET /search/movie` (with `query`)
 
-Important: You must supply a valid TMDB v4 Read Access Token via `TMDB_API_KEY`.
-
 ## Routing
 - `/` - Landing page with featured carousels
 - `/search/[term]` - Search results, e.g. `/search/inception`
@@ -81,8 +47,6 @@ The app uses `next/image` with the following remote patterns (see `next.config.j
 - `http://image.tmdb.org`
 - `https://links.papareact.com`
 
-If you display images from additional domains, add them to `images.remotePatterns`.
-
 ## Notes & Tips
 - The search page also shows a “You may also enjoy” section with popular movies for discovery.
 - Genre browsing relies on TMDB genre IDs; ensure your navigation passes the correct `id` and human-readable `genre` query.
@@ -90,7 +54,3 @@ If you display images from additional domains, add them to `images.remotePattern
 
 ## Acknowledgements
 - Data provided by [The Movie Database (TMDB)](https://www.themoviedb.org/). This project uses the TMDB API but is not endorsed or certified by TMDB.
-
-## License
-This project is for educational/demo purposes. Choose and add a license if you plan to distribute.
-
