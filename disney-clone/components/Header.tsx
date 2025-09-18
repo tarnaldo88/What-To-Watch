@@ -11,8 +11,8 @@ function Header() {
       p-5 bg-gradient-to-t from-gray-200/0 via-gray-900/25'>
         <Link className='mr-10' href="/">
             <Image 
-                src="https://w.wallhaven.cc/full/x6/wallhaven-x6wjkv.png"                
-                className='cursor-pointer invert'
+                src="/WhatToWatchLogo.png"                
+                className='cursor-pointer'
                 alt="Disney Logo"
                 width={120}
                 height={100}

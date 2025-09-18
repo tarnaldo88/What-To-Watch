@@ -4,8 +4,8 @@ import Header from '@/components/Header'
 import { ThemeProvider } from '@/components/ThemeProvider'
 
 export const metadata: Metadata = {
-  title: 'Disney clone',
-  description: 'for educational reasons',
+  title: 'What To Watch?',
+  description: 'Search for what to watch next',
 }
 
 export default function RootLayout({
