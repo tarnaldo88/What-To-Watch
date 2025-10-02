@@ -4,13 +4,14 @@ import { getPopularMovies, getTopRatedMovies, getUpcomingMovies, getDiscoverMovi
 
 export default async function Home() {
   // Fetch existing carousel data
-  const [upcomingMovies, topRatedMovies, popularMovies, actionMovies, dramaMovies, horrorMovies] = await Promise.all([
+  const [upcomingMovies, topRatedMovies, popularMovies, actionMovies, dramaMovies, horrorMovies, moreMovies] = await Promise.all([
     getUpcomingMovies(),
     getTopRatedMovies(),
     getPopularMovies(),
     getDiscoverMovies('28'), // Action
     getDiscoverMovies('18'), // Drama
-    getDiscoverMovies('27')  // Horror
+    getDiscoverMovies('27'),  // Horror
+    getDiscoverMovies('10749') //testing
   ]);
 
   return (
@@ -33,6 +34,10 @@ export default async function Home() {
         <MoviesCarousel 
           movies={horrorMovies} 
           title="Horror"
+        />
+        <MoviesCarousel
+          movies={moreMovies}
+          title="More Movies"
         />
       </div>
     </main>
