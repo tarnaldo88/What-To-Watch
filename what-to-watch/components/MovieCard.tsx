@@ -3,7 +3,7 @@ import { Movie } from '@/typings'
 import React, { useState } from 'react'
 import Image from 'next/image'
 import getImagePath from '@/lib/getImagePath' 
-import { Console } from 'console'
+import MovieImagesModal from './MovieImagesModal'
 
 interface ImageWithTextProps {
   imageUrl: string;
@@ -12,10 +12,12 @@ interface ImageWithTextProps {
 
 function MovieCard({movie}: {movie:Movie}) {
   const [isHovered, setIsHovered] = useState(false);
+  const [openModal, setOpenModal] = useState(false);
 
   return (
     <div className='relative flex-shrink-0 cursor-pointer transform 
         hover:scale-105 transition-duration-200 ease-out'
+        onClick={() => setOpenModal(true)}
     >
         <div
             className='absolute inset-0 bg-gradient-to-b from-gray-200/0
@@ -42,6 +44,11 @@ function MovieCard({movie}: {movie:Movie}) {
             width={1920}
             height={1080}
             key={movie.id}
+        />
+        <MovieImagesModal
+          movie={movie}
+          open={openModal}
+          onClose={() => setOpenModal(false)}
         />       
     </div>
   )
