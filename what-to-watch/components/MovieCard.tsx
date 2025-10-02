@@ -49,6 +49,7 @@ function MovieCard({movie}: {movie:Movie}) {
           movie={movie}
           open={openModal}
           onClose={() => setOpenModal(false)}
+          initialIndex={0}
         />       
     </div>
   )
