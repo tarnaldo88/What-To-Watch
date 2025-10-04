@@ -1,10 +1,11 @@
 "use client"
 import { Movie } from '@/typings';
-import React from 'react';
+import React, { useState } from 'react';
 import Image from 'next/image';
 import getImagePath from '@/lib/getImagePath';
 import useEmblaCarousel from 'embla-carousel-react'
 import Autoplay from "embla-carousel-autoplay";
+import MovieImagesModal from './MovieImagesModal';
 
 type Props = {
     movies:Movie[];
@@ -14,12 +15,18 @@ Autoplay.globalOptions= {delay: 8000};
 
 function CarouselsBanner({movies}: Props) {
     const [emblaRef] = useEmblaCarousel({loop: true, duration: 100}, [Autoplay()]);
+    const [open, setOpen] = useState(false);
+    const [selected, setSelected] = useState<Movie | null>(null);
 
   return (
     <div ref={emblaRef} className='overflow-hidden lg:-mt-40 relative cursor-pointer'>        
         <div className='flex'>
             {movies.map(movie => (
-                <div key={movie.id} className='flex-full min-w-0 relative'>
+                <div
+                    key={movie.id}
+                    className='flex-full min-w-0 relative'
+                    onClick={() => { setSelected(movie); setOpen(true); }}
+                >
                     <Image 
                         key={movie.id}
                         src={getImagePath(movie.backdrop_path, true)}
@@ -41,9 +48,10 @@ function CarouselsBanner({movies}: Props) {
             ))}
         </div>
         <div 
-            className='absolute inset-0 bg-gradient-to-b from-gray-200/0 via-gray-900/25
+            className='pointer-events-none absolute inset-0 bg-gradient-to-b from-gray-200/0 via-gray-900/25
             to-gray-300 dark:to-[#1A1C29]'
         />
+        <MovieImagesModal movie={selected} open={open} onClose={() => setOpen(false)} initialIndex={0} />
     </div>
   )
 }
