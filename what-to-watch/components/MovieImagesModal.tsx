@@ -107,13 +107,13 @@ export default function MovieImagesModal({ movie, open, onClose, initialIndex = 
         onClick={onClose}
         aria-hidden
       />
-
+      
       {/* Modal */}
       <div className="absolute inset-0 flex items-center justify-center p-4">
         <div className="relative w-full max-w-5xl max-h-[85vh] overflow-hidden rounded-md bg-[#0f111a] shadow-xl ring-1 ring-white/10" onClick={(e) => e.stopPropagation()}>
           {/* Header */}
-          <div className="flex items-center justify-between px-4 py-3 border-b border-white/10">
-            <h3 className="text-lg font-semibold truncate pr-4">{movie?.title} — Images</h3>
+          <div className="flex items-center justify-center px-4 py-3 border-b border-white/10">
+            <h3 className="text-lg font-semibold truncate pr-4">{movie?.title} — Images</h3>            
             <button
               onClick={onClose}
               className="inline-flex items-center rounded px-2 py-1 text-sm bg-white/10 hover:bg-white/20"
@@ -122,7 +122,9 @@ export default function MovieImagesModal({ movie, open, onClose, initialIndex = 
               Close
             </button>
           </div>
-
+          <div className="p-4 overflow-auto max-h-[70vh]">
+            <p>{movie?.overview}</p>
+          </div>
           {/* Body */}
           <div className="p-4 overflow-auto max-h-[70vh]">
             {loading && <p className="text-sm opacity-80">Loading images…</p>}
