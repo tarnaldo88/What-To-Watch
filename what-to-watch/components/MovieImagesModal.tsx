@@ -1,6 +1,7 @@
 'use client'
 
 import React, { useEffect, useMemo, useState } from 'react';
+import { createPortal } from 'react-dom';
 import Image from 'next/image';
 import { Movie } from '@/typings';
 import getImagePath from '@/lib/getImagePath';
@@ -33,6 +34,11 @@ export default function MovieImagesModal({ movie, open, onClose, initialIndex = 
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   useEffect(() => {
     let active = true;
@@ -91,10 +97,10 @@ export default function MovieImagesModal({ movie, open, onClose, initialIndex = 
     return () => window.removeEventListener('keydown', onKey);
   }, [selectedIndex, images.length]);
 
-  if (!open) return null;
+  if (!open || !mounted) return null;
 
-  return (
-    <div className="fixed inset-0 z-[1000]">
+  return createPortal(
+    <div className="fixed inset-0 z-[9999]">
       {/* Backdrop */}
       <div
         className="absolute inset-0 bg-black/60"
@@ -148,7 +154,7 @@ export default function MovieImagesModal({ movie, open, onClose, initialIndex = 
       </div>
       {/* Lightbox viewer */}
       {selectedIndex !== null && images[selectedIndex] && (
-        <div className="absolute inset-0 z-[1100] flex items-center justify-center p-4" onClick={() => setSelectedIndex(null)}>
+        <div className="fixed inset-0 z-[10000] flex items-center justify-center p-4" onClick={() => setSelectedIndex(null)}>
           <div className="relative w-full h-full flex items-center justify-center">
             <Image
               src={getImagePath(images[selectedIndex].file_path, true)}
@@ -184,6 +190,7 @@ export default function MovieImagesModal({ movie, open, onClose, initialIndex = 
           </div>
         </div>
       )}
-    </div>
+    </div>,
+    document.body
   );
 }
