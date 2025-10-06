@@ -31,12 +31,13 @@ function CarouselsBanner({movies}: Props) {
                         key={movie.id}
                         src={getImagePath(movie.backdrop_path, true)}
                         alt=""
+                        width={1920}
                         height={1080}
                     />    
                     <div className='hidden lg:inline absolute mt-0 top-0 
                         pt-40 xl:pt-52 left-0 lg:mt-40 bg-transparent z-20 
                         h-full w-full p-10 space-y-5' style={{
-                            background: 'linear-gradient(to right, rgba(185, 28, 28, 0.9) 0%, rgba(185, 28, 28, 0.7) 30%, transparent 100%)'
+                            // background: 'linear-gradient(to right, rgba(185, 28, 28, 0.9) 0%, rgba(185, 28, 28, 0.7) 0%, transparent 100%)'
                         }}>
                         <h2 className='text-5xl font-bold max-w-xl z-50'>
                             {movie.title}
