@@ -49,7 +49,7 @@ function CarouselsBanner({movies}: Props) {
         </div>
         <div 
             className='pointer-events-none absolute inset-0 bg-gradient-to-b from-gray-200/0 via-gray-900/25
-            to-gray-300 dark:to-[#1A1C29]'
+            to-gray-300 dark:to-[#8f0314]'
         />
         <MovieImagesModal movie={selected} open={open} onClose={() => setOpen(false)} initialIndex={0} />
     </div>
