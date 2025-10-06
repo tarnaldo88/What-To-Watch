@@ -3,7 +3,7 @@ import { SearchResults } from "@/typings";
 
 async function fetchFromTMDB(url: URL, cacheTime?: number): Promise<SearchResults> {
     try {
-        url.searchParams.set("include_adult", "true");
+        url.searchParams.set("include_adult", "false");  // Set to false to exclude adult content
         url.searchParams.set("include_video", "true");
         url.searchParams.set("sort_by", "popularity.desc");
         url.searchParams.set("language", "en-US");
