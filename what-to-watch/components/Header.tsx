@@ -13,7 +13,7 @@ function Header() {
             <Image 
                 src="/WhatToWatchLogo.png"                
                 className='cursor-pointer'
-                alt="Disney Logo"
+                alt="App Logo"
                 width={120}
                 height={100}
             />

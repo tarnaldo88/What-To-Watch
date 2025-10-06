@@ -29,19 +29,11 @@ export default async function Home() {
         <MoviesCarousel 
           movies={actionMovies} 
           title="Action" 
-        />
-        <MoviesCarousel 
-          movies={dramaMovies} 
-          title="Drama" 
-        />
+        />        
         <MoviesCarousel 
           movies={horrorMovies} 
           title="Horror"
-        />
-        <MoviesCarousel
-          movies={moreMovies}
-          title="Liebesfilm"
-        />
+        />        
         <MoviesCarousel
           movies={comedyMovies}
           title="Comedies"
@@ -49,6 +41,14 @@ export default async function Home() {
         <MoviesCarousel
           movies={scienceMovies}
           title="Science Fiction"
+        />
+        <MoviesCarousel 
+          movies={dramaMovies} 
+          title="Drama" 
+        />
+        <MoviesCarousel
+          movies={moreMovies}
+          title="Liebesfilm"
         />
       </div>
     </main>
