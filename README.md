@@ -43,7 +43,6 @@ Endpoints used (via `lib/getMovies.ts`):
 
 ## Images
 The app uses `next/image` with the following remote patterns (see `next.config.js`):
-- `https://w.wallhaven.cc`
 - `http://image.tmdb.org`
 - `https://links.papareact.com`
 
