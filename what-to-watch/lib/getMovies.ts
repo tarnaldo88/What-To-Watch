@@ -8,6 +8,7 @@ async function fetchFromTMDB(url: URL, cacheTime?: number): Promise<SearchResult
         url.searchParams.set("sort_by", "popularity.desc");
         url.searchParams.set("language", "en-US");
         url.searchParams.set("page", "1");
+        url.searchParams.set("page_size", "20");  // Increase number of movies per page
 
         const options: RequestInit = {
             method: "GET",
