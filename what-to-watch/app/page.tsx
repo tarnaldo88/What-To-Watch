@@ -8,6 +8,7 @@ export default async function Home() {
     upcomingMovies = [], 
     topRatedMovies = [], 
     popularMovies = [], 
+    animeMovies = [],
     actionMovies = [], 
     dramaMovies = [], 
     horrorMovies = [],
@@ -18,6 +19,7 @@ export default async function Home() {
     getUpcomingMovies(),
     getTopRatedMovies(),
     getPopularMovies(),
+    getDiscoverMovies('16'), // Anime
     getDiscoverMovies('28'), // Action
     getDiscoverMovies('18'), // Drama
     getDiscoverMovies('27'), // Horror
@@ -31,6 +33,7 @@ export default async function Home() {
     { movies: upcomingMovies, title: 'Upcoming' },
     { movies: popularMovies, title: 'Popular' },
     { movies: topRatedMovies, title: 'Top Rated' },
+    { movies: animeMovies, title: 'Anime' },
     { movies: comedyMovies, title: 'Comedy' },
     { movies: actionMovies, title: 'Action' },
     { movies: horrorMovies, title: 'Horror' },
